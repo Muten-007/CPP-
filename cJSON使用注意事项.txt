@@ -1,0 +1,13 @@
+https://github.asiainfo-sec.com/CNISP-Z4A/AGW-Engine
+
+cJSON  *prase = cJSON_Parse(json);
+cJSON_Delete(prase);
+
+
+(2)使用 cJSON_Print和cJSON_PrintUnformatted函数
+函数将json数据转成字符串,这个函数内申请了一段内存给out,所以使用完out后也要释放,由于out不是json指针的数据格式,使用cJSON_free(out)释放即可
+char *str = cJSON_Print(json);
+cJSON_free(str);
+
+char *format=cJSON_PrintUnformatted(json);
+cJSON_free(format);
